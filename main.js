@@ -20,11 +20,7 @@ fs.readFile('./data.json', 'utf8', (err, data) => {
         }
     }
     
-    console.log("Доходи, усього:" + sumIncome.toFixed(4));
-    console.log("Витрати, усього:" + sumExpenses.toFixed(3));
-
     const content = `Доходи, усього:${sumIncome.toFixed(4)}\nВитрати, усього:${sumExpenses.toFixed(3)}`;
-    
 
     fs.writeFile('./output.txt', content, err => {
         if (err) {
