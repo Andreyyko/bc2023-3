@@ -1,5 +1,4 @@
 const fs = require('fs');
-const { parse } = require('path');
 
 fs.readFile('./data.json', 'utf8', (err, data) => {
     if (err) {
@@ -15,11 +14,11 @@ fs.readFile('./data.json', 'utf8', (err, data) => {
         if (parsedData[i].parent == 'BS2_ExpensesTotal') {
             sumExpenses = sumExpenses + parsedData[i].value;
         }
-        else if(parsedData[i].parent == 'BS2_IncomeTotal'){
+        else if (parsedData[i].parent == 'BS2_IncomeTotal') {
             sumIncome = sumIncome + parsedData[i].value;
         }
     }
-    
+
     const content = `Доходи, усього:${sumIncome.toFixed(4)}\nВитрати, усього:${sumExpenses.toFixed(3)}`;
 
     fs.writeFile('./output.txt', content, err => {
